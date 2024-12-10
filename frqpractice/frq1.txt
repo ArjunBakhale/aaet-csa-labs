@@ -1,0 +1,32 @@
+public class ImageProcessor {
+    /** Modifies pixel values based on minimum and maximum thresholds:
+     *  - Values below minThreshold become 0
+     *  - Values above maxThreshold become 255
+     *  - Values between thresholds remain unchanged
+     *  @param image the original image array
+     *  @param minThreshold the minimum cutoff value
+     *  @param maxThreshold the maximum cutoff value
+     *  @return the processed image array
+     *  Precondition: 0 ≤ minThreshold ≤ maxThreshold ≤ 255
+     */
+    public int[][] thresholdRange(int[][] image, int minThreshold, int maxThreshold)
+    {
+        /* to be implemented in part (a) */
+	int[][] final = new int[image.length-1][image[0].length-1];
+	for(int row = 0; row < image.length; row++){
+		for(int col = 0; col < image[0].length; col++){
+			if(image[row][col] > maxThreshold){
+				final[row][col] = 255;
+			}else if(image[row][col] < minThreshold){
+				final[row][col] = 0;
+			}else{
+				final[row][col] = image[row][col];
+			}
+		}
+	}
+	
+	return final;
+
+    }
+}
+
