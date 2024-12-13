@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4902e609-8eb7-4410-a71c-b1fe6d48449a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shapes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shapes.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShapeCalculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Triangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shapes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shapes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shapes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shapes/.idea/shapes.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shapes/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shapes/.idea/vcs.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2q9004sb6P1LBuFQWqUg0sbWZVo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ShapeCalculator.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/875745/OneDrive - Loudoun County Public Schools/Documents/aaet-csa-labs/Shapes"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4902e609-8eb7-4410-a71c-b1fe6d48449a" name="Changes" comment="" />
+      <created>1734059260214</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734059260214</updated>
+    </task>
+    <servers />
+  </component>
+</project>

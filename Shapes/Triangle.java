@@ -1,4 +1,6 @@
-public class Triangle extends Shapes {
+package Shapes;
+
+public class Triangle extends Shape {
     private double base;
     private double height;
 
@@ -9,11 +11,13 @@ public class Triangle extends Shapes {
 
     @Override
     public double area() {
+
         return 0.5 * base * height;
     }
 
     @Override
     public String getDescription() {
+
         return "Triangle with base " + base + " and height " + height;
     }
 }

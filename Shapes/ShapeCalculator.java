@@ -1,23 +1,23 @@
-
+package Shapes;
 
 public class ShapeCalculator {
-    public static void printAllShapes(Shapes[] shapes) {
+    public static void printAllShapes(Shape[] shapes) {
         System.out.println("Shape Information:");
-        for (Shapes shape : shapes) {
+        for (Shape shape : shapes) {
             shape.printInfo();
         }
     }
 
-    public static double getTotalArea(Shapes[] shapes) {
+    public static double getTotalArea(Shape[] shapes) {
         double totalArea = 0;
-        for (Shapes shape : shapes) {
+        for (Shape shape : shapes) {
             totalArea += shape.area();
         }
         return totalArea;
     }
 
     public static void main(String[] args) {
-        Shapes[] shapes = new Shapes[] {
+        Shape[] shapes = new Shape[] {
                 new Circle(5.0),
                 new Rectangle(4.0, 6.0),
                 new Triangle(8.0, 3.0),
@@ -27,7 +27,6 @@ public class ShapeCalculator {
 
         printAllShapes(shapes);
 
-        System.out.printf("Total area of all shapes: %.2f square units\n",
-                getTotalArea(shapes));
+        System.out.println("Total area of all shapes: " + String.format("%.2f", getTotalArea(shapes)) + " square units");
     }
 }

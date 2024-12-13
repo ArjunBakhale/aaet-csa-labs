@@ -1,4 +1,6 @@
-public class Rectangle extends Shapes {
+package Shapes;
+
+public class Rectangle extends Shape {
     private double width;
     private double height;
 
@@ -9,11 +11,13 @@ public class Rectangle extends Shapes {
 
     @Override
     public double area() {
+
         return width * height;
     }
 
     @Override
     public String getDescription() {
+
         return "Rectangle with width " + width + " and height " + height;
     }
 }
