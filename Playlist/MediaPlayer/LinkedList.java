@@ -1,50 +1,59 @@
 package MediaPlayer;
+import java.util.NoSuchElementException;
 
-/**
- * LinkedList class
- * A implementation of a singly linked list data structure
- * with a head pointer.
- *
- * AP CS students: Implement all methods in this file
- */
+
+
 public class LinkedList<E> {
 
 	/**
 	 * Node class for the LinkedList
 	 * Contains data and a reference to the next node
 	 */
-	private class Node {
-			private E data;         // Data stored in this node
-			private Node next;      // Reference to the next node in the list
+	public class Node {
+		protected E data;         // Data stored in this node
+		protected Node next;      // Reference to the next node in the list
 
-			/**
-			 * Constructor for the Node class
-			 * @param data The data to store in this node
-			 */
-			public Node(E data) {
-					// Implement this constructor
-			}
+		/**
+		 * Constructor for the Node class
+		 * @param data The data to store in this node
+		 */
+		public Node(E data) {
+			// Implement this constructor
+			this.data = data;
 
-			/**
-			 * Constructor for the Node class
-			 * @param data The data to store in this node
-			 * @param next The reference to the next node
-			 */
-			public Node(E data, Node next) {
-					// Implement this constructor
-			}
+
+		}
+
+		/**
+		 * Constructor for the Node class
+		 * @param data The data to store in this node
+		 * @param next The reference to the next node
+		 */
+		public Node(E data, Node next) {
+			// Implement this constructor
+			this.data = data;
+			this.next = next;
+		}
+
+		public Node getNext (){
+			return this.next;
+		}
+
 	}
 
 	// Instance variables for the LinkedList
-	private Node head;  // Reference to the first node in the list
-	private int size;   // Number of elements in the list
+	protected Node head;  // Reference to the first node in the list
+	protected int size;   // Number of elements in the list
 
 	/**
 	 * Default constructor for the LinkedList class
 	 * Creates an empty list
 	 */
 	public LinkedList() {
-			// Implement this constructor
+		// Implement this constructor
+		this.head = null;
+		this.size = 0 ;
+
 	}
 
 	/**
@@ -52,8 +61,10 @@ public class LinkedList<E> {
 	 * @return The number of elements in the list
 	 */
 	public int size() {
-			// Implement this method
-			return -1; // Placeholder return value
+		// Implement this method
+		return this.size;
+
+
 	}
 
 	/**
@@ -61,8 +72,11 @@ public class LinkedList<E> {
 	 * @return true if the list is empty, false otherwise
 	 */
 	public boolean isEmpty() {
-			// Implement this method
-			return false; // Placeholder return value
+		// Implement this method
+		if(this.size == 0){
+			return true;
+		}
+		return false; // Placeholder return value
 	}
 
 	/**
@@ -71,8 +85,13 @@ public class LinkedList<E> {
 	 * @throws NoSuchElementException if the list is empty
 	 */
 	public E getFirst() {
-			// Implement this method
-			return null; // Placeholder return value
+		// Implement this method
+		if(this.head == null){
+			throw new NoSuchElementException("List is empty");
+		}
+		else {
+			return this.head.data;
+		}
 	}
 
 	/**
@@ -81,8 +100,17 @@ public class LinkedList<E> {
 	 * @throws NoSuchElementException if the list is empty
 	 */
 	public E getLast() {
-			// Implement this method
-			return null; // Placeholder return value
+		if(this.head == null){
+			throw new NoSuchElementException("List is empty");
+		}
+
+		Node currentNode = this.head;
+		while(currentNode.next!= null){
+			currentNode = currentNode.next;
+		}
+		return currentNode.data;
+
+		// Placeholder return value
 	}
 
 	/**
@@ -90,7 +118,12 @@ public class LinkedList<E> {
 	 * @param element The element to add
 	 */
 	public void addFirst(E element) {
-			// Implement this method
+		// Implement this method
+		Node prevHead = this.head;
+		this.head = new Node(element);
+		this.head.next = prevHead;
+		this.size += 1;
+
 	}
 
 	/**
@@ -98,7 +131,20 @@ public class LinkedList<E> {
 	 * @param element The element to add
 	 */
 	public void addLast(E element) {
-			// Implement this method
+		// Implement this method
+		if(this.head == null){
+			addFirst(element);
+		}
+		else {
+			Node addedNode = new Node(element);
+			Node currentNode = this.head;
+			while (currentNode.next != null) {
+				currentNode = currentNode.next;
+			}
+			currentNode.next = addedNode;
+			this.size++;
+		}
+
 	}
 
 	/**
@@ -107,8 +153,29 @@ public class LinkedList<E> {
 	 * @throws NoSuchElementException if the list is empty
 	 */
 	public E removeFirst() {
-			// Implement this method
-			return null; // Placeholder return value
+		// Implement this method
+
+		if(this.head == null){
+			throw new NoSuchElementException("List is empty");
+		}
+
+		else if(this.head.next == null){
+			E prevdata = this.head.data;
+			this.head=null;
+			size = 0;
+			return prevdata;
+		}
+
+		else {
+			Node tempNode = new Node(this.head.next.data, this.head.next);
+			E prevdata = this.head.data;
+			this.head.data = null;
+			this.head = tempNode;
+			this.size --;
+			return prevdata;
+		}
+
+
 	}
 
 	/**
@@ -117,8 +184,24 @@ public class LinkedList<E> {
 	 * @throws NoSuchElementException if the list is empty
 	 */
 	public E removeLast() {
-			// Implement this method
-			return null; // Placeholder return value
+		// Implement this method
+		if(this.head == null){
+			throw new NoSuchElementException("List is empty");
+		}
+
+		else {
+			Node currentNode = this.head;
+			while (currentNode.next.next != null) {
+				currentNode = currentNode.next;
+			}
+
+			E removedData = currentNode.next.data;
+			currentNode.next = null;
+
+			this.size--;
+
+			return removedData;
+		}
 	}
 
 	/**
@@ -128,7 +211,37 @@ public class LinkedList<E> {
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 */
 	public void add(int index, E element) {
-			// Implement this method
+		// Implement this method
+		if(index ==0){
+			addFirst(element);
+		}
+
+		else if (this.size == index){
+			addLast(element);
+		}
+
+		else if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		}
+
+
+		else {
+			Node addedNode = new Node(element);
+
+			Node currentNode = this.head;
+
+			//takes me to the node before I want to add
+			for (int i = 0; i < index - 1; i++) {
+				currentNode = currentNode.next;
+			}
+
+			addedNode.next = currentNode.next;
+			currentNode.next = addedNode;
+
+
+			this.size++;
+		}
+
 	}
 
 	/**
@@ -138,8 +251,35 @@ public class LinkedList<E> {
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 */
 	public E get(int index) {
-			// Implement this method
-			return null; // Placeholder return value
+		// Implement this method
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		}
+		else {
+			Node currentNode = this.head;
+
+			//takes me to the node before I want to add
+			for (int i = 0; i < index; i++) {
+				currentNode = currentNode.next;
+			}
+			return currentNode.data;
+		}
+	}
+
+	public Node getNode(int index) {
+		// Implement this method
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		}
+		else {
+			Node currentNode = this.head;
+
+			//takes me to the node before I want to add
+			for (int i = 0; i < index; i++) {
+				currentNode = currentNode.next;
+			}
+			return currentNode;
+		}
 	}
 
 	/**
@@ -149,9 +289,29 @@ public class LinkedList<E> {
 	 * @throws IndexOutOfBoundsException if the index is out of range
 	 */
 	public E remove(int index) {
-			// Implement this method
-			return null; // Placeholder return value
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		}
+		if (index == 0) {
+			E removedData = head.data;
+			head = head.next;
+			size--;
+			return removedData;
+		}
+
+		Node currentNode = head;
+		for (int i = 0; i < index - 1; i++) {
+			currentNode = currentNode.next;
+		}
+		E removedData = currentNode.next.data;
+
+		currentNode.next = currentNode.next.next;
+		size--;
+
+		return removedData;
 	}
+
+
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -159,8 +319,26 @@ public class LinkedList<E> {
 	 * @return The index of the first occurrence of the element, or -1 if not found
 	 */
 	public int indexOf(E element) {
-			// Implement this method
-			return -1; // Placeholder return value
+		// Check if the list is empty
+		if (head == null) {
+			return -1;
+		}
+
+		int currentIndex = 0;
+		Node currentNode = this.head;
+
+		// Loop until we reach the end of the list
+		while (currentNode != null) {
+			// Use equals() for content comparison (handles null element case)
+			if (element == null ? currentNode.data == null : element.equals(currentNode.data)) {
+				return currentIndex;
+			}
+			currentIndex++;
+			currentNode = currentNode.next;
+		}
+
+		// Element not found
+		return -1;
 	}
 
 	/**
@@ -169,31 +347,56 @@ public class LinkedList<E> {
 	 * @return true if the list contains the element, false otherwise
 	 */
 	public boolean contains(E element) {
-			// Implement this method
-			return false; // Placeholder return value
-	}
+		if (head == null) {
+			return false;
+		}
 
+		Node currentNode = this.head;
+		while (currentNode != null) {
+			if (element == null ? currentNode.data == null : element.equals(currentNode.data)) {
+				return true;
+			}
+			currentNode = currentNode.next;
+		}
+		return false;
+	}
 	/**
 	 * Returns a string representation of the list
 	 * @return A string representation of the list
 	 */
 	@Override
 	public String toString() {
-			// Implement this method
-			return ""; // Placeholder return value
+		String output = "[";
+		if (head == null) {
+			output += "]";
+		} else {
+			Node currentNode = this.head;
+			while (currentNode != null) {
+				output += currentNode.data;
+				if (currentNode.next != null) {
+					output += ", ";
+				} else {
+					output += "]";
+				}
+				currentNode = currentNode.next;
+			}
+		}
+		return output;
 	}
+
 
 	/**
 	 * Clears the list, removing all elements
 	 */
 	public void clear() {
-			// Implement this method
+		this.head = null;
+		this.size = 0;
 	}
 
 	/**
 	 * Extra challenge: Reverses the list in place
 	 */
 	public void reverse() {
-			// Implement this method (optional challenge)
+		// Implement this method (optional challenge)
 	}
 }

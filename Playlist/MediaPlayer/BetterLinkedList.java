@@ -14,8 +14,20 @@ public class BetterLinkedList<E> extends LinkedList<E> {
   * @param j the index of the second element to be swapped
   * @throws IndexOutOfBoundsException if either index is out of range (i < 0 || i >= size || j < 0 || j >= size)
   */
+
+
+
  public void swap(int i, int j) {
-	//todo: implement this method
+
+  if(i < 0 || i >= size || j < 0 || j >= size){
+   throw new IndexOutOfBoundsException("Index i " + i + ", Index j: "+ j + "Size: " + size);
+  }
+
+  
+
+
+
+
  }
 
  /**
@@ -25,7 +37,7 @@ public class BetterLinkedList<E> extends LinkedList<E> {
   * @throws IndexOutOfBoundsException if the index is out of range (i < 0 || i >= size - 1)
   */
  public void swapWithNext(int i) {
-	//todo: implement this method
+
  }
 
  /**
