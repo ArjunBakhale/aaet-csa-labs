@@ -38,6 +38,8 @@ public class PlaylistController {
      */
     public void addSong(Song song) {
 			// todo: Implement this method
+      playlist.addLast(song);
+      updatePlaylistTable();
     }
 
     /**
@@ -48,7 +50,15 @@ public class PlaylistController {
      */
     public boolean removeSong(int index) {
 			// todo: Implement this method
-			return false; // placeholder
+       // placeholder
+
+       if(index < 0 || index > playlist.size() - 1) {
+        return false;
+       }
+
+      playlist.remove(index);
+      updatePlaylistTable();
+      return true;
     }
 
     /**
@@ -59,7 +69,14 @@ public class PlaylistController {
      */
     public int moveSongUp(int index) {
 			// todo: Implement this method using 'swap' method
-			return 1; // placeholder
+
+      if(index <= 0 || index > playlist.size() - 1) {
+        return -1;
+      }
+
+      playlist.swap(index, index - 1);
+      updatePlaylistTable();
+			return index - 1; // placeholder
     }
 
     /**
@@ -70,7 +87,13 @@ public class PlaylistController {
      */
     public int moveSongDown(int index) {
 			// todo: Implement this method using 'swap' method
-			return 1; // placeholder
+			if(index < 0 || index > playlist.size() - 2) {
+        return -1;
+      }
+
+      playlist.swap(index, index + 1);
+      updatePlaylistTable();
+			return index + 1; // placeholder
     }
 
     /**
@@ -78,7 +101,11 @@ public class PlaylistController {
      */
     public void sortByTitle() {
 			// todo: Implement this method AFTER implementing sort in the BetterLinkedList class
+      playlist.sort();
+      updatePlaylistTable();
     }
+
+
 
 
     /**
@@ -88,7 +115,7 @@ public class PlaylistController {
      */
     public int getSize() {
         // todo: Implement this method
-				return 1;
+				return playlist.size();
     }
 
     /**
@@ -99,7 +126,12 @@ public class PlaylistController {
      */
     public Song getSongAt(int index) {
 				// todo: Implement this method
-        return null;
+
+        if(index < 0 || index > playlist.size() - 1) {
+          return null;
+        }
+
+        return playlist.get(index);
     }
 
     /**
@@ -116,6 +148,7 @@ public class PlaylistController {
      */
     public void clearPlaylist() {
 				// todo: Implement this method
+        playlist.clear();
     }
 
     /**

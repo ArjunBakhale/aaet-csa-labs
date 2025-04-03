@@ -5,7 +5,7 @@ package MediaPlayer;
 
  //todo Make this class Comparable for sorting
 
-public class Song {
+public class Song implements Comparable<Song>{
     private String title;
     private String artist;
     private String album;
@@ -76,6 +76,11 @@ public class Song {
     @Override
     public String toString() {
         return title + " - " + artist + " (" + duration + ")";
+    }
+
+    @Override
+    public int compareTo(Song song) {
+        return this.title.compareTo(song.getTitle());
     }
 
 }

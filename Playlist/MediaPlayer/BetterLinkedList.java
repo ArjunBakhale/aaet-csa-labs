@@ -1,4 +1,5 @@
 package MediaPlayer;
+import java.util.Random;
 
 /**
  * BetterLinkedList class
@@ -14,20 +15,28 @@ public class BetterLinkedList<E> extends LinkedList<E> {
   * @param j the index of the second element to be swapped
   * @throws IndexOutOfBoundsException if either index is out of range (i < 0 || i >= size || j < 0 || j >= size)
   */
-
-
-
  public void swap(int i, int j) {
+	//todo: implement this method
+    if (i < 0 || i >= size || j < 0 || j >= size) {
+        throw new IndexOutOfBoundsException();
+    }
 
-  if(i < 0 || i >= size || j < 0 || j >= size){
-   throw new IndexOutOfBoundsException("Index i " + i + ", Index j: "+ j + "Size: " + size);
-  }
+    if(i < j){
+        E tempRemoved = remove(j);
+        add(i, tempRemoved);
 
-  
+        tempRemoved = remove(i+1);
+        add(j, tempRemoved);
 
+    } else {
+        E tempRemoved = remove(i);
+        add(j, tempRemoved);
 
+        tempRemoved = remove(j+1);
+        add(i, tempRemoved);
 
-
+    }
+    
  }
 
  /**
@@ -37,8 +46,17 @@ public class BetterLinkedList<E> extends LinkedList<E> {
   * @throws IndexOutOfBoundsException if the index is out of range (i < 0 || i >= size - 1)
   */
  public void swapWithNext(int i) {
+	//todo: implement this method
 
+    if(i < 0 || i > size - 2) {
+        throw new IndexOutOfBoundsException();
+    }
+
+    E tempNo = remove(i);
+    add(i + 1, tempNo );
  }
+
+
 
  /**
   * Sorts the elements in this list in ascending order.
@@ -49,5 +67,18 @@ public class BetterLinkedList<E> extends LinkedList<E> {
   */
  public void sort() {
 	//todo: implement this method
+
+    for(int i = 0; i < size - 1; i++) {
+        for(int j = 0; j < size - 1 - i; j++){
+            E current = get(j);
+            E next = get(j+1);
+
+            if(((Comparable<E>) current).compareTo(next) > 0) {
+                swapWithNext(j);
+            }
+        }
+    } 
  }
+
+
 }

@@ -1,0 +1,8 @@
+Dear Dr. White,
+
+IN summary, I had a great time working on this application and I was glad to ahve made a project that successfully uses our data sturctures knowladge to solve a real problme. While coding this rpboect, I had some toruble implementing the better linked list. Particularly, the switch method was difficult for me as there are many different edge cases to consider. Furthermore, the test cases were confusing as they didnt directly reveal the edge case I was not considering
+
+For my extension, I origianlly attempted to add 1 random song from the song list CSV. I was able to add 1 random song from the already populated list of songs, but i was not able to add a random song from the CSV since I could not figure out to to read from the CSV to make a list that I could pull a random song from.
+
+Best Regards,
+Arjun Bakhale
